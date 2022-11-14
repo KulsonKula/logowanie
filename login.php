@@ -40,7 +40,7 @@ else{
         }
         else
         {
-        $_SESSION['blad']='<span style="color:red">Nieprawidlowy login lub haslo!</span>';
+        $_SESSION['blad']='<span style="color:red">Incorrent login or password!</span>';
         header('Location:index.php');
         }
     }

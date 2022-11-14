@@ -10,7 +10,7 @@ if(isset($_POST['email']))
  if((3<strlen($login))|(20>strlen($login)))
  {
     $Allright=false;
-    $_SESSION['e_login']="login must have between 3 and 20 characters";
+    $_SESSION['e_login']="Login must have between 3 and 20 characters";
  }
 
  if($Allright==true){

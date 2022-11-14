@@ -18,7 +18,7 @@
 <body>
     <?php
 
-    echo "<p> Witaj " . $_SESSION['login'] . '![<a href="logout.php">Wyloguj sie!</a>]</p>';
+    echo "<p> Welcome " . $_SESSION['login'] . '! [<a href="logout.php">Log out!</a>]</p>';
     ?>
 </body>
 

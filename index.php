@@ -23,7 +23,7 @@ if (isset($_SESSION['loged']) && ($_SESSION['loged'] == true)) {
 		<input type="submit" calue="log in" />
 	</form>
 
-	<a href="registration.php"> Rejestracja </a>
+	<a href="registration.php"> Registration</a> <br />
 	<?php
 	if (isset($_SESSION['blad'])) {
 		echo $_SESSION['blad'];
