@@ -7,7 +7,6 @@ if (isset($_SESSION['loged']) && ($_SESSION['loged'] == true)) {
 ?>
 
 
-
 <!doctype html>
 <html>
 
