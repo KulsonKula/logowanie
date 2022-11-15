@@ -1,0 +1,39 @@
+* {
+  background-color: #eaa569;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+html {
+    background-color: #eaa569;
+    color: #555;
+    font-family: "Arial";
+    font-weight: 300;
+    font-size: 25px;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+.register,
+.register h1,
+.register label,
+.register div,
+.g-recaptcha{
+    background-color: white;
+}
+.register h1{
+    font-size: 90%;
+}
+.input_B{
+    background-color: white;
+    border-color: #eaa569;
+    border-radius: 10px;
+}
+
+.log_button{
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
