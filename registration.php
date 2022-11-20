@@ -51,7 +51,7 @@ if (isset($_POST['email'])) {
         $_SESSION['e_captcha'] = "Confirm that you are not a bot";
     }
 
-    //sprawdzenie w bazie maila
+    //sprawdzenie w bazie
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
@@ -59,6 +59,7 @@ if (isset($_POST['email'])) {
         if ($connect->connect_errno != 0) {
             throw new Exception(mysqli_connect_errno());
         } else {
+
             //is email in base
             $result = $connect->query("SELECT user_id FROM users WHERE email='$email'");
             if (!$result) throw new Exception($connect->error);
@@ -67,22 +68,8 @@ if (isset($_POST['email'])) {
                 $Allright = false;
                 $_SESSION['e_email'] = "This E-mail is already used";
             }
-            $connect->close();
-        }
-    } catch (Exception $e) {
-        echo "Serwer issue";
-        echo $e;
-    }
 
-    //sprawdzenie w bazie login
-    require_once "connect.php";
-    mysqli_report(MYSQLI_REPORT_STRICT);
-    try {
-        $connect = new mysqli($host, $db_user, $db_password, $db_name);
-        if ($connect->connect_errno != 0) {
-            throw new Exception(mysqli_connect_errno());
-        } else {
-            //is email in base
+            //is login in base
             $result = $connect->query("SELECT user_id FROM users WHERE login='$login'");
             if (!$result) throw new Exception($connect->error);
             $how_much2 = $result->num_rows;
@@ -90,11 +77,16 @@ if (isset($_POST['email'])) {
                 $Allright = false;
                 $_SESSION['e_login'] = "This login is already used";
             }
-            
+
             //wpisanie do bazy
             if ($Allright == true) {
+                if($connect->query("INSERT INTO users VALUES('$login','$password_hash',NULL,'$email')")){
+                    header('Location:index.php');
+                }
+                else{
+                    throw new Exception($connect->error);
+                }
             }
-
             $connect->close();
         }
     } catch (Exception $e) {
@@ -102,6 +94,7 @@ if (isset($_POST['email'])) {
         echo $e;
     }
 }
+
 
 ?>
 <!doctype html>
