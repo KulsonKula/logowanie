@@ -2,7 +2,6 @@
   background-color: #eaa569;
   box-sizing: border-box;
   margin: 0 auto;
-  
 }
 html {
   background-color: #eaa569;
@@ -19,7 +18,8 @@ html {
 .register div,
 .g-recaptcha,
 .register h2,
-.register h3 {
+.register h3,
+.register p {
   background-color: white;
   border-radius: 10px;
   text-align: center;
@@ -43,19 +43,38 @@ html {
   text-decoration: none;
   cursor: pointer;
   border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 3px;
+  font-size: 70%;
+  padding-left: 27%;
+  padding-right: 27%;
 }
-h2{
-    font-size: 75%;
+h2 {
+  font-size: 80%;
 }
-h3{
-    margin-top:3px;
-    margin-bottom: 3px;
-    font-size:60%;
+h3 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 60%;
 }
 
+h1 {
+  margin-bottom: 0;
+}
 h1,
 h2,
 h3,
-h4{
-    color: black;
+h4 {
+  color: black;
+}
+
+p {
+  font-size: 75%;
+  margin-bottom: 35px;
+  color: #555;
+}
+
+.error {
+  color: red;
+  font-size: 60%;
 }

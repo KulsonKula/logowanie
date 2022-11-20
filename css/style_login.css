@@ -98,10 +98,12 @@ h4 {
   margin-right: 20%;
   margin-bottom: 10%;
   background-color: white;
+
 }
 span {
 
   background-color: white;
+  font-size: 70%;
 }
 
 .log_button,
