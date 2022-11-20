@@ -34,18 +34,18 @@ if (isset($_POST['email'])) {
 
         <form class="register" method="post">
             <h1>Welcome in habit tracer!</h1>
-            Login:<br /><input class="input_B" type="text" name="login" /><br />
+            <h2>Login</h2><input class="input_B" type="text" name="login" placeholder="Enter your login" /> <br />
             <?php
             if (isset($_SESSION['e_login'])) {
                 echo '<div class="error">' . $_SESSION['e_login'] . '</div>';
                 unset($_SESSION['e_login']);
             }
             ?>
-            E-mail:<br /><input class="input_B" type="text" name="email" /><br />
-            Password:<br /><input class="input_B" type="password" name="password1" /><br />
-            Re-entry passowrd:<br /><input class="input_B" type="password" name="password2" /><br />
+            <h2>E-mail</h2><input class="input_B" type="text" name="email" placeholder="Enter your E-mile" /><br />
+            <h2>Password</h2><input class="input_B" type="password" name="password1" placeholder="*********" /><br />
+            <h2>Re-entry passowrd</h2><input class="input_B" type="password" name="password2" placeholder="*********" /><br />
             <label>
-                <input type="checkbox" name="statute" /> I do agree to statute.
+                <h3><input type="checkbox" name="statute" /> I do agree to <a href="https://www.w3schools.com/tags/tag_center.asp">statute</a>.</h3>
             </label>
             <div class="g-recaptcha" data-sitekey="6LcJ9gYjAAAAAC7GQr1ke5qFvZJgRNLU5O3XuoUU"></div>
             <br></br>
