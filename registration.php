@@ -80,10 +80,9 @@ if (isset($_POST['email'])) {
 
             //wpisanie do bazy
             if ($Allright == true) {
-                if($connect->query("INSERT INTO users VALUES('$login','$password_hash',NULL,'$email')")){
+                if ($connect->query("INSERT INTO users VALUES('$login','$password_hash',NULL,'$email')")) {
                     header('Location:index.php');
-                }
-                else{
+                } else {
                     throw new Exception($connect->error);
                 }
             }
