@@ -44,6 +44,5 @@ if ($connect->connect_errno != 0) {
             header('Location:index.php');
         }
     }
-
     $connect->close();
 }

@@ -1,9 +1,30 @@
+* {
+  background-color: #eaa569;
+}
 .container {
   width: 1140px;
   margin: 20px auto 0 auto;
-  background-color: #66380f;
+  background-color: white;
 }
 
-h1{
-  margin-left:20px;
+h1,
+a {
+  margin-left: 20px;
+  background-color: white;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.habit {
+  height: 300px;
+  width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  border: 10px solid #eaa569;
 }
