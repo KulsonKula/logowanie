@@ -1,10 +1,17 @@
 body {
   background: #fdc830; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fdc830, #f37335); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fdc830, #f37335); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(
+    to right,
+    #fdc830,
+    #f37335
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fdc830,
+    #f37335
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .container {
-
   width: 1140px;
   margin: 20px auto 0 auto;
   background-color: white;
@@ -14,7 +21,6 @@ h1,
 a {
   margin-left: 20px;
   background-color: white;
-  
 }
 
 .wrapper {
@@ -32,7 +38,7 @@ a {
   border-radius: 10px;
   border: 10px solid #eaa569;
 }
-.add{
+.add {
   display: flex;
   flex-direction: column;
 }
