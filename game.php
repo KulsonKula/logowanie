@@ -47,7 +47,11 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
                 $connect->query($query);
                 $checked = "";
                 }
-            echo "<input type='checkbox' $checked>";
+            echo "<form action='changing.php' method='GET'>";
+            echo "<input type='checkbox' $checked name='checkbox[]' onchange='this.form.submit()' value=$checked>";
+            echo "<input type='text' style='display:none' name='habit_id' value='$habit_id'>";
+            echo "<input type='text' style='display:none' name='date' value='".date("Y-m-d")."'>";
+            echo "</form>";
             echo "</div>";
         }
         ?>
