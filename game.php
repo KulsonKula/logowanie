@@ -34,19 +34,23 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
             echo "<input name='id'value=" . $row['habit_id'] . " style='display:none;'>";
             echo "</form>";
             $habit_id = $row['habit_id'];
-            $query = "SELECT * FROM info WHERE $habit_id = habit_id";
+            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND info.date='".date('Y-m-d')."'";
             $row2 = $connect->query($query);
             $data = $row2->fetch_assoc();
-            if(@$data['date']==date("Y-m-d")&&$data['done']==1)
-                $checked = "checked";
-            else if(@$data['date']==date("Y-m-d")&&$data['done']==0)
-                $checked = "";
-            else
-                {
+            if($row2->num_rows==0){
                 $query = "INSERT INTO info VALUES(".$row['habit_id'].",'".date('Y-m-d')."',0)";
                 $connect->query($query);
                 $checked = "";
-                }
+            }
+            else{
+
+                if(@$data['date']==date("Y-m-d")&&$data['done']==1)
+                $checked = "checked";
+                else if(@$data['date']==date("Y-m-d")&&$data['done']==0)
+                $checked = "";
+            }
+                
+            
             echo "<form action='changing.php' method='GET'>";
             echo "<input type='checkbox' $checked name='checkbox[]' onchange='this.form.submit()' value=$checked>";
             echo "<input type='text' style='display:none' name='habit_id' value='$habit_id'>";
