@@ -54,6 +54,11 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
             echo "<input type='text' style='display:none' name='habit_id' value='$habit_id'>";
             echo "<input type='text' style='display:none' name='date' value='" . date("Y-m-d") . "'>";
             echo "</form>";
+
+            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND done=1";
+            $result_S = $connect->query($query);
+            echo "<h3> Sum:".  $result_S->num_rows."</h3>";
+            
             echo "</div>";
         }
         ?>
