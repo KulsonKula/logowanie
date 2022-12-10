@@ -57,8 +57,20 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
 
             $query = "SELECT * FROM info WHERE habit_id = $habit_id AND done=1";
             $result_S = $connect->query($query);
-            echo "<h3> Sum:".  $result_S->num_rows."</h3>";
-            
+            echo "<h3> Sum: ".  $result_S->num_rows."</h3>";
+
+            $i=0;
+            while(true){
+            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('".date('Y-m-d')."',". "INTERVAL $i DAY)";
+            $result_Streak = $connect->query($query);
+            $row3 = @$result_Streak->fetch_assoc();
+            if(@$row3['done']==1)
+            $i++;
+            else
+            break;
+            }
+            echo "<h3> Steak: ".  $i."</h3>";
+
             echo "</div>";
         }
         ?>
