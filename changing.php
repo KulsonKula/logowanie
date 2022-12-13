@@ -10,13 +10,12 @@ $date = @$_GET['date'];
 
 
 if (isset($_GET['checkbox'])) {
-    foreach($wartosci as $done){
-        $query = "UPDATE info SET done=1 WHERE habit_id=$habit_id AND date='".$date."'";
+    foreach ($wartosci as $done) {
+        $query = "UPDATE info SET done=1 WHERE habit_id=$habit_id AND date='" . $date . "'";
         $result = $connect->query($query);
     }
-}
-else{
-    $query = "UPDATE info SET done=0 WHERE habit_id=$habit_id AND date='".$date."'";
+} else {
+    $query = "UPDATE info SET done=0 WHERE habit_id=$habit_id AND date='" . $date . "'";
     $result = $connect->query($query);
 }
 

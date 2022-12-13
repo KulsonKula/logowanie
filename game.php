@@ -57,37 +57,33 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
 
             $query = "SELECT * FROM info WHERE habit_id = $habit_id AND done=1";
             $result_S = $connect->query($query);
-            echo "<h3> Sum: ".  $result_S->num_rows."</h3>";
+            echo "<h3> Sum: " .  $result_S->num_rows . "</h3>";
 
-            $J=0;
-            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('".date('Y-m-d')."',". "INTERVAL $J DAY)";
-            $result_Streak = $connect->query($query);
-            $rowT = @$result_Streak->fetch_assoc();
-            if($rowT['done']==1){
-                $i=0;
-                $flaga=true;}
-            else{
-                $i=1;
-                $flaga=false;
+
+            if ($data['done'] == 1) {
+                $i = 0;
+                $flaga = true;
+            } else {
+                $i = 1;
+                $flaga = false;
             }
-            
-            while(true){
-            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('".date('Y-m-d')."',". "INTERVAL $i DAY)";
-            $result_Streak = $connect->query($query);
-            $row3 = @$result_Streak->fetch_assoc();
-            if(@$row3['done']==1)
-            $i++;
-            else
-            break;
+
+            while (true) {
+                $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('" . date('Y-m-d') . "'," . "INTERVAL $i DAY)";
+                $result_Streak = $connect->query($query);
+                $row3 = @$result_Streak->fetch_assoc();
+                if (@$row3['done'] == 1)
+                    $i++;
+                else
+                    break;
             }
             if ($flaga)
-            echo "<h3> Streak: ".  $i."</h3>";
-            else
-            {
-            $i--;
-            echo "<h3> Streak: ".  $i."</h3>";
+                echo "<h3> Streak: " .  $i . "</h3>";
+            else {
+                $i--;
+                echo "<h3> Streak: " .  $i . "</h3>";
             }
-            
+
             echo "</div>";
         }
         ?>
