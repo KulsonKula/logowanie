@@ -59,7 +59,18 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
             $result_S = $connect->query($query);
             echo "<h3> Sum: ".  $result_S->num_rows."</h3>";
 
-            $i=0;
+            $J=0;
+            $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('".date('Y-m-d')."',". "INTERVAL $J DAY)";
+            $result_Streak = $connect->query($query);
+            $rowT = @$result_Streak->fetch_assoc();
+            if($rowT['done']==1){
+                $i=0;
+                $flaga=true;}
+            else{
+                $i=1;
+                $flaga=false;
+            }
+            
             while(true){
             $query = "SELECT * FROM info WHERE habit_id = $habit_id AND date=DATE_SUB('".date('Y-m-d')."',". "INTERVAL $i DAY)";
             $result_Streak = $connect->query($query);
@@ -69,8 +80,14 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
             else
             break;
             }
-            echo "<h3> Steak: ".  $i."</h3>";
-
+            if ($flaga)
+            echo "<h3> Streak: ".  $i."</h3>";
+            else
+            {
+            $i--;
+            echo "<h3> Streak: ".  $i."</h3>";
+            }
+            
             echo "</div>";
         }
         ?>

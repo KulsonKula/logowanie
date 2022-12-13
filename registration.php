@@ -10,7 +10,7 @@ if (isset($_POST['email'])) {
         $Allright = false;
         $_SESSION['e_login'] = "Login must have between 3 and 20 characters";
     }
-    if (ctype_alnum($login) == false) {
+    if (!ctype_alnum($login)) {
         $Allright = false;
         $_SESSION['e_login'] = "Nickname can only consist of letters and numbers";
     }
@@ -18,7 +18,7 @@ if (isset($_POST['email'])) {
     //Email
     $email = $_POST['email'];
     $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if ((filter_var($emailB, FILTER_VALIDATE_EMAIL) == false) || ($email != $emailB)) {
+    if ((!filter_var($emailB, FILTER_VALIDATE_EMAIL)) || ($email != $emailB)) {
         $Allright = false;
         $_SESSION['e_email'] = "Enter the correct e-mail address";
     }
