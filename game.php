@@ -60,7 +60,7 @@ $connect = @new mysqli($host, $db_user, $db_password, $db_name);
             echo "<h3> Sum: " .  $result_S->num_rows . "</h3>";
 
 
-            if ($data['done'] == 1) {
+            if (@$data['done'] == 1) {
                 $i = 0;
                 $flaga = true;
             } else {
